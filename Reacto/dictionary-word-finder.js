@@ -1,5 +1,8 @@
 
-// Brute force solution
+// Dictionary word finder
+// http://slides.com/mschreiber/reacto#/
+
+// * Brute force solution
 // const defintionOf = (word, dict) => {
 //   for (let i = 0; i < dict.length; i++) {
 //     if (dict[i].indexOf(word + '-') === 0) {
@@ -10,7 +13,7 @@
 // run time: O(n)
 // space complexity: O(1)
 
-// Binary search solution
+// * Binary search solution
 // const defintionOf = (word, dict) => {
 //   let prevLeft = 0;
 //   let prevRight = dict.length - 1;
@@ -31,7 +34,7 @@
 // run time: O(log n)
 // space complexity: O(1)
 
-// Hash map solution
+// * Hash map solution
 const cache = new Map(); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 const findOrCreateHashMap = (dict) => {
   if (cache.has(dict)) return cache.get(dict);
