@@ -38,14 +38,12 @@
 const cache = new Map(); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 const findOrCreateHashMap = (dict) => {
   if (cache.has(dict)) return cache.get(dict);
-
   const hashmap = new Map();
   dict.forEach(entry => {
     const keyValArr = entry.split('-');
     hashmap.set(keyValArr[0], keyValArr[1]);
   });
   cache.set(dict, hashmap);
-
   return hashmap;
 };
 const defintionOf = (word, dict) => {
