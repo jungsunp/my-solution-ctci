@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "quotes": [2, 'single'],
+    "semi": 1,
+    "curly": 0,
+    "camelcase": 0,
+    "no-unused-vars": 1,
+    "no-use-before-define": 2,
+    "no-underscore-dangle": 2,
+    "strict": 0,
+    "no-multi-spaces": 2,
+    "semi-spacing": 2,
+    "no-shadow": 2
+  },
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "chrome": false
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}

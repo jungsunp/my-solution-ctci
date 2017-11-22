@@ -1,0 +1,14 @@
+{
+  "name": "my-solution-ctci",
+  "version": "1.0.0",
+  "description": "my solution to Cracking the Coding Interview book's problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "author": "Jung Park",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.11.0"
+  }
+}
