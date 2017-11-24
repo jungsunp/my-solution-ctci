@@ -17,7 +17,7 @@ const doesPathExist = function (graph, start, end, visitedArr) {
 
   return false;
 };
-// run time: O(n)
+// run time: O(n!)
 // space complexity: O(n)
 
 const graph = {
