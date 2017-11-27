@@ -1,4 +1,4 @@
-/* CLASS */
+// Linked List
 function LinkedList (value) {
   this.value = value;
   this.next = null;
@@ -56,7 +56,7 @@ const checkDup = (head, node) => {
 // run time: O(n^2)
 // space complexity: O(1)
 
-/* TESTS */
+// Tests
 var a = new LinkedList('a');
 var b = new LinkedList('b');
 var c = new LinkedList('c');
