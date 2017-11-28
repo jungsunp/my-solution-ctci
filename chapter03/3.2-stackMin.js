@@ -1,5 +1,5 @@
 
-const Stack = require('./utils');
+const { Stack } = require('./utils');
 
 // Solution
 // min needs to operate in O(1)

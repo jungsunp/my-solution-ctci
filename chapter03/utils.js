@@ -19,4 +19,23 @@ Stack.prototype.isEmpty = function() {
   return this.data.length === 0;
 };
 
-module.exports = Stack;
+function LinkedList (value) {
+  this.value = value;
+  this.next = null;
+};
+
+const printLinkedList = head => {
+  console.log('*** start of LL ***');
+  let node = head;
+  while (node) {
+    console.log(node.value);
+    node = node.next;
+  }
+  console.log('*** end of LL ***');
+};
+
+module.exports = {
+  Stack,
+  LinkedList,
+  printLinkedList
+};
