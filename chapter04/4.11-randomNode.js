@@ -30,7 +30,9 @@ RandomBinaryTree.prototype.getRandomNode = function () {
     return this.right.getRandomNode();
   }
 };
-
+// run time: O(log n) - balanced tree
+//           or O(D) where D is max depth - more accurate
+// space complexity: O(log n)
 
 // Test
 var bt = new RandomBinaryTree(4);
