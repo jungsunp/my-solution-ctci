@@ -1,5 +1,16 @@
 
 
+function mergeSort(array) {
+    if (array.length <= 1) {
+        return array;
+    }
+    // split array
+    var halves = split(array);
+    var sortedHalf1 = mergeSort(halves[0]);
+    var sortedHalf2 = mergeSort(halves[1]);
+    return merge(sortedHalf1, sortedHalf2);
+}
+
 function split(array) {
     var middleIndex = Math.ceil(array.length / 2);
     return [array.slice(0, middleIndex), array.slice(middleIndex)];
@@ -31,15 +42,3 @@ function merge(arr1, arr2) {
 
     return sortedArr;
 }
-
-function mergeSort(array) {
-
-      if (array.length <= 1) {
-          return array;
-      }
-      // split array
-      var halves = split(array);
-      var sortedHalf1 = mergeSort(halves[0]);
-      var sortedHalf2 = mergeSort(halves[1]);
-      return merge(sortedHalf1, sortedHalf2);
-  }

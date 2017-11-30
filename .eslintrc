@@ -1,11 +1,11 @@
 {
   "rules": {
-    "quotes": [2, 'single'],
+    "quotes": [2, "single"],
     "semi": 1,
     "curly": 0,
     "camelcase": 0,
     "no-unused-vars": 1,
-    "no-use-before-define": 2,
+    "no-use-before-define": 0,
     "no-underscore-dangle": 2,
     "strict": 0,
     "no-multi-spaces": 2,
