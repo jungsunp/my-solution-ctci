@@ -32,7 +32,6 @@ const magicIndex = (arr, start, end) => {
   };
 
 
-
 /* TEST */
 console.log(magicIndex([-1, 0, 1, 3, 9, 100]), 3);
 console.log(magicIndex([-1, 0, 1, 2, 3, 5, 100, 200, 300, 400, 500, 600, 700]), 5);
