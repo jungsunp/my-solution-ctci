@@ -25,9 +25,9 @@ const searchInRotatedArray = (arr, target, left, right) => {
     return result;
   }
 };
+// Run time: O(log n) - if unique. With duplicate it will be O(n)
 
-
-// Test;
+// Test
 // searchInRotatedArray can be called
 console.log(searchInRotatedArray() === 'where is the array?');
 
