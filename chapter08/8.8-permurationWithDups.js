@@ -19,6 +19,7 @@ const permWithDups = str => {
   });
 return retArr;
 };
+// Run: O(n!)
 
 
 /* TEST */
