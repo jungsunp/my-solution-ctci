@@ -19,3 +19,5 @@ var isPalindrome = function(x) {
   }
   return true;
 };
+// Run: O(log x)
+// Space: O(1)
