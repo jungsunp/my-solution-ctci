@@ -24,3 +24,5 @@ var maxArea = function(height) {
   }
   return max;
 };
+// Run: O(n)
+// Space: O(1)
