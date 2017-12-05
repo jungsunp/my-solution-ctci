@@ -19,5 +19,5 @@ var reverse = function(x) {
     ret = ret * 10 + digit;
     x = Math.floor(x / 10);
   }
-  return isNegative ? -ret : ret
+  return isNegative ? -ret : ret;
 };

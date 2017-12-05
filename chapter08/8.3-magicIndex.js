@@ -19,17 +19,17 @@
 // Solution - if integers are NOT distinct
 const magicIndex = (arr, start, end) => {
 
-    if (start === undefined) start = 0;
-    if (end === undefined) end = arr.length - 1;
-    if (start > end) return;
+  if (start === undefined) start = 0;
+  if (end === undefined) end = arr.length - 1;
+  if (start > end) return;
 
-    const mid = Math.floor((start + end) / 2);
-    if (arr[mid] === mid) return mid;
-    let retIndex;
-    retIndex = magicIndex(arr, start, Math.min(mid - 1, arr[mid])); // left side first
-    if (retIndex >= 0) return retIndex;
-    return magicIndex(arr, mid + 1, Math.max(mid + 1, arr[mid])); // right side after
-  };
+  const mid = Math.floor((start + end) / 2);
+  if (arr[mid] === mid) return mid;
+  let retIndex;
+  retIndex = magicIndex(arr, start, Math.min(mid - 1, arr[mid])); // left side first
+  if (retIndex >= 0) return retIndex;
+  return magicIndex(arr, mid + 1, Math.max(mid + 1, arr[mid])); // right side after
+};
 
 
 /* TEST */

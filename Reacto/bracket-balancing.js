@@ -9,7 +9,7 @@ const matchBracket = (open, close) => {
   else if (open === '(') return (close === ')');
   else if (open === '{') return (close === '}');
   return false;
-}
+};
 
 const hasBalancedBrackets = (str) => {
   const bracketStack = [];

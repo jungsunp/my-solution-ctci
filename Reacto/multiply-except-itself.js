@@ -40,7 +40,7 @@ const multiplyExcept = arr => {
       else val = 0;
     } else if (zeroCount > 1) {
        val = 0;
-    } else val = multiEverything/elem;
+    } else val = multiEverything / elem;
     returnArr.push(val);
   });
   return returnArr;
@@ -63,9 +63,9 @@ const multiNoDiv = arr => {
 
     const fromRight = Array(arr.length).fill(0);
     fromRight[arr.length - 1] = 1;
-    for (let i = arr.length - 1; i >= 0; i--){
-      const val = fromRight[i+1] * arr[i+1];
-      fromRight[i] = val;
+    for (let i = arr.length - 1; i > 0; i--){
+      const val = fromRight[i] * arr[i];
+      fromRight[i - 1] = val;
     }
 
     const retArr = Array(arr.length).fill(0);
