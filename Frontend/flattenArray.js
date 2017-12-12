@@ -12,10 +12,12 @@
 //   });
 //   return retArr;
 // };
+// Run: O(n)
+// Space: O(n)
 
 // Solution ES6
 const flattenArr = arr => arr.reduce(
-  (a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []
+  (a, b) => a.concat(Array.isArray(b) ? flattenArr(b) : b), []
 );
 
 console.log(flattenArr([]));
