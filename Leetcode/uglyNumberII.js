@@ -26,3 +26,5 @@ var nthUglyNumber = function(n) {
 };
 // Run: O(n)
 // Space: O(1)
+
+console.log(nthUglyNumber(100));
