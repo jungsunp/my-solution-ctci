@@ -38,7 +38,7 @@ const bubbleUp = heap => {
   let index = heap.length - 1;
   while (index > 1 && !done) {
     const pIdx = Math.floor(index / 2);
-    if (heap[pIdx].freq < heap[index].freq) {
+    if (heap[pIdx] < heap[index]) {
       const tmp = heap[pIdx];
       heap[pIdx] = heap[index];
       heap[index] = tmp;
@@ -55,11 +55,11 @@ const bubbleDown = heap => {
   while (index < heap.length && !done) {
     const lChild = 2 * index;
     const rChild = 2 * index + 1;
-    const lFreq = heap[lChild] ? heap[lChild].freq : 0;
-    const rFreq = heap[rChild] ? heap[rChild].freq : 0;
-    if (lFreq > 0 && heap[index].freq < Math.max(lFreq, rFreq)) {
+    const lVal = heap[lChild];
+    const rVal = heap[rChild];
+    if (lVal > 0 && heap[index] < Math.max(lVal, rVal)) {
       let swapIndex;
-      if (lFreq < rFreq) {
+      if (lVal < rVal) {
         swapIndex = rChild;
       } else {
         swapIndex = lChild;
