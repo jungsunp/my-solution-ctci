@@ -20,11 +20,12 @@ var swapPairs = function(head) {
   let prev = dummyHead;
   while (node) {
       const next = node.next;
-      node.next = next ? next.next : null;
       if (next) {
+          node.next = next.next;
           next.next = node;
           prev.next = next;
       } else {
+          node.next = null;
           prev.next = node;
       }
       prev = node;
