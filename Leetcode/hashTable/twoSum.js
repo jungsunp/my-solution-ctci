@@ -10,3 +10,5 @@ var twoSum = function(nums, target) {
   }
   throw Error;
 };
+// Run: O(n)
+// Space: O(n)
