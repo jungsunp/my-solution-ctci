@@ -30,19 +30,19 @@ var partition = function (array, left, right) {
   rightIndex = right;
 
   while (leftIndex <= rightIndex) {
+
     while (array[leftIndex] < pivot) {
       leftIndex++;
     }
-
     while (array[rightIndex] > pivot) {
       rightIndex--;
     }
-
     if (leftIndex <= rightIndex) {
       swap(array, left, right);
       leftIndex++;
       rightIndex--;
     }
+
   }
   return leftIndex;
 };
