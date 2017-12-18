@@ -12,7 +12,7 @@ const nthFib = (index) => {
   return [nMinusOneFib[1], nMinusOneFib[0] + nMinusOneFib[1]];
 };
 // run time: O(n)
-// space complexity: O(1)
+// space complexity: O(n)
 
 console.log(nthFib(1));
 console.log(nthFib(2));
@@ -20,4 +20,3 @@ console.log(nthFib(3));
 console.log(nthFib(4));
 console.log(nthFib(5));
 console.log(nthFib(20));
-

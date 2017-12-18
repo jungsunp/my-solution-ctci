@@ -3,20 +3,20 @@
 // http://slides.com/sarahdherr/reacto-graph#/
 
 // Solution  - usiung array
-// const doesPathExist = function (graph, start, end, visitedArr) {
-//   if (graph[start].includes(end)) return true;
+const doesPathExistArr = function (graph, start, end, visitedArr) {
+  if (graph[start].includes(end)) return true;
 
-//   if (!visitedArr) visitedArr = [start];
-//   for (let i = 0; i < graph[start].length; i++) {
-//     if (!visitedArr.includes(graph[start][i])) {
-//       const newVisitedArr = visitedArr.slice(0);
-//       newVisitedArr.push(graph[start][i]);
-//       if (doesPathExist(graph, graph[start][i], end, newVisitedArr)) return true;
-//     }
-//   }
+  if (!visitedArr) visitedArr = [start];
+  for (let i = 0; i < graph[start].length; i++) {
+    if (!visitedArr.includes(graph[start][i])) {
+      const newVisitedArr = visitedArr.slice(0);
+      newVisitedArr.push(graph[start][i]);
+      if (doesPathExistArr(graph, graph[start][i], end, newVisitedArr)) return true;
+    }
+  }
 
-//   return false;
-// };
+  return false;
+};
 // run time: O(n!)
 // space complexity: O(n)
 

@@ -2,40 +2,41 @@
 // Dictionary word finder
 // http://slides.com/mschreiber/reacto#/
 
-// * Brute force solution
-// const defintionOf = (word, dict) => {
-//   for (let i = 0; i < dict.length; i++) {
-//     if (dict[i].indexOf(word + '-') === 0) {
-//       return dict[i].split('-')[1];
-//     }
-//   }
-// };
+// Solution - Brute force
+const defintionOfBF = (word, dict) => {
+  for (let i = 0; i < dict.length; i++) {
+    if (dict[i].indexOf(word + '-') === 0) {
+      return dict[i].split('-')[1];
+    }
+  }
+};
 // run time: O(n)
 // space complexity: O(1)
 
-// * Binary search solution
-// const defintionOf = (word, dict) => {
-//   let prevLeft = 0;
-//   let prevRight = dict.length - 1;
-//   let index;
-//
-//   do {
-//     index = Math.floor((prevLeft + prevRight) / 2);
-//     if (dict[index].indexOf(word + '-') === 0) {
-//       return dict[index].split('-')[1];
-//     } else if (word < dict[index]) {
-//       prevRight = index - 1;
-//     } else {
-//       prevLeft = index + 1;
-//     }
-//   } while (prevLeft >= 0 && prevRight < dict.length && prevLeft <= prevRight);
-//
-// };
+// Solution - Binary search
+const defintionOfBS = (word, dict) => {
+  let prevLeft = 0;
+  let prevRight = dict.length - 1;
+  let index;
+
+  do {
+    index = Math.floor((prevLeft + prevRight) / 2);
+    if (dict[index].indexOf(word + '-') === 0) {
+      return dict[index].split('-')[1];
+    } else if (word < dict[index]) {
+      prevRight = index - 1;
+    } else {
+      prevLeft = index + 1;
+    }
+  } while (prevLeft >= 0 && prevRight < dict.length && prevLeft <= prevRight);
+
+};
 // run time: O(log n)
 // space complexity: O(1)
 
-// * Hash map solution
-const cache = new Map(); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+// Solution - Hash map
+const cache = new Map();
+
 const findOrCreateHashMap = (dict) => {
   if (cache.has(dict)) return cache.get(dict);
   const hashmap = new Map();
@@ -46,6 +47,7 @@ const findOrCreateHashMap = (dict) => {
   cache.set(dict, hashmap);
   return hashmap;
 };
+
 const defintionOf = (word, dict) => {
   const hasmap = findOrCreateHashMap(dict);
   return hasmap.get(word);

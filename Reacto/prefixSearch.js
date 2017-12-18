@@ -2,23 +2,23 @@
 // Prefix search
 // http://slides.com/mschreiber/reacto-4#/
 
-// * Brute force solution
-// const findsWordStartingWith = (book, str) => {
-//   const bookText = book.text.toLowerCase();
-//   const searchStr = str.toLowerCase();
-//   const matchArr = [];
-//
-//   for (let i = 0; i < bookText.length - searchStr.length; i++) {
-//     if (i !== 0 && bookText[i-1] !== ' ') continue;
-//     if (bookText.slice(i).startsWith(searchStr)) matchArr.push(i);
-//   }
-//
-//   return matchArr;
-// };
+// Solution - Brute force
+const findsWordStartingWithBF = (book, str) => {
+  book = book.text.toLowerCase();
+  str = str.toLowerCase();
+  const matchArr = [];
+
+  for (let i = 0; i < book.length - str.length; i++) {
+    if (i !== 0 && book[i-1] !== ' ') continue;
+    if (book.slice(i).startsWith(str)) matchArr.push(i);
+  }
+
+  return matchArr;
+};
 // run time: O(n) - n: number of chars in book
 // space complexity: O(n)
 
-// * Trie solution
+// Solution - Trie
 //
 // e.x) 'this is text'
 // trie = {
@@ -42,9 +42,12 @@
 //     }
 //   }
 // };
+
+const cache = new Map();
+
 const buildTrie = (text) => {
-  const trie = {};
   text = text.toLowerCase();
+  const trie = {};
 
   for (let i = 0; i < text.length; i++) {
     let node = trie;
@@ -60,7 +63,6 @@ const buildTrie = (text) => {
   return trie;
 };
 
-const cache = new Map();
 const findOrCreateTrie = (book) => {
   if (cache.get(book.id)) return cache.get(book.id);
   const trie = buildTrie(book.text);

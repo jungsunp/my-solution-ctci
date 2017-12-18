@@ -3,14 +3,14 @@
 // http://slides.com/benjaminconant/reacto-3#
 
 // Solution - Brute Force
-// const getBestProfit = (arrayOfStockPrices) => {
-//   let maxProfit = 0, futureMax;
-//   arrayOfStockPrices.forEach((price, index) => {
-//     futureMax = Math.max(...arrayOfStockPrices.slice(index + 1));
-//     if ((futureMax - price) > maxProfit) maxProfit = futureMax - price;
-//   });
-//   return maxProfit;
-// };
+const getBestProfitBF = (arrayOfStockPrices) => {
+  let maxProfit = 0, futureMax;
+  arrayOfStockPrices.forEach((price, index) => {
+    futureMax = Math.max(...arrayOfStockPrices.slice(index + 1));
+    if ((futureMax - price) > maxProfit) maxProfit = futureMax - price;
+  });
+  return maxProfit;
+};
 // run time: O(n^2)
 // space complexity: O(1)
 
