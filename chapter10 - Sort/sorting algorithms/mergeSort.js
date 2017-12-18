@@ -33,12 +33,8 @@ function merge(arr1, arr2) {
     }
 
     // append rest of the array if needed
-    if (i < arr1.length) {
-        sortedArr = sortedArr.concat(arr1.slice(i));
-    }
-    if (j < arr2.length) {
-        sortedArr = sortedArr.concat(arr2.slice(j));
-    }
+    if (i < arr1.length) sortedArr = sortedArr.concat(arr1.slice(i));
+    if (j < arr2.length) sortedArr = sortedArr.concat(arr2.slice(j));
 
     return sortedArr;
 }

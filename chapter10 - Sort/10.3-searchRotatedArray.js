@@ -2,9 +2,8 @@
 
 // Solution
 
-const searchInRotatedArray = (arr, target, left, right) => {
-  if (!arr) return 'where is the array?';
-	if (left === undefined) left = 0;
+const searchInRotatedArray = (arr, target, left = 0, right) => {
+	if (!arr) return;
 	if (right === undefined) right = arr.length - 1;
 	let mid = Math.floor((left + right) / 2);
 	if (left > right) return -1;
@@ -14,22 +13,31 @@ const searchInRotatedArray = (arr, target, left, right) => {
 	if (arr[right] === target) return right;
 
 	if (arr[0] < arr[mid]) {
-		if (target < arr[mid] && target > arr[left]) return searchInRotatedArray(arr, target, left+1, mid-1);
-		else return searchInRotatedArray(arr, target, mid+1, right -1);
+		// first half is sorted
+		if (target < arr[mid] && target > arr[left]){
+			return searchInRotatedArray(arr, target, left + 1, mid - 1);
+		} else {
+			return searchInRotatedArray(arr, target, mid + 1, right - 1);
+		}
 	} else if (arr[0] > arr[mid]) {
-		if(target > arr[mid] && target < arr[right]) return searchInRotatedArray(arr, target, mid+1, right -1);
-		else return searchInRotatedArray(arr, target, left + 1, mid -1);
-  } else {
-    let result = searchInRotatedArray(arr, target, left+1, mid-1);
-    if (result === -1) result = searchInRotatedArray(arr, target, mid+1, right-1);
-    return result;
-  }
+		// second half is sorted
+		if (target > arr[mid] && target < arr[right]) {
+			return searchInRotatedArray(arr, target, mid + 1, right - 1);
+		} else {
+			return searchInRotatedArray(arr, target, left + 1, mid - 1);
+		}
+	} else {
+		let result = searchInRotatedArray(arr, target, left + 1, mid - 1);
+		if (result === -1) result = searchInRotatedArray(arr, target, mid + 1, right - 1);
+		return result;
+	}
 };
 // Run time: O(log n) - if unique. With duplicate it will be O(n)
+// Space: O(log n)
 
 // Test
 // searchInRotatedArray can be called
-console.log(searchInRotatedArray() === 'where is the array?');
+console.log(searchInRotatedArray() === undefined);
 
 // find in unrotated array
 console.log(searchInRotatedArray([1, 2, 3, 4], 3) === 2);
