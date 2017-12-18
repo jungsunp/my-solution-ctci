@@ -1,21 +1,8 @@
-// Linked List
-function LinkedList (value) {
-  this.value = value;
-  this.next = null;
-};
 
-const printLinkedList = head => {
-  console.log('*** start of LL ***');
-  let node = head;
-  while (node) {
-    console.log(node.value);
-    node = node.next;
-  }
-  console.log('*** end of LL ***');
-};
+const { LinkedList, printLinkedList } = require('./utils');
 
-// Solution - hasbh table solution
-const removeDups = head => {
+// Solution - hash table solution
+const removeDupsHT = head => {
   const dupArr = {};
   let node = head;
   let prevNode;
@@ -35,24 +22,24 @@ const removeDups = head => {
 // Solution - no buffer memory
 
 const checkDup = (head, node) => {
-  const curNode = head;
+  let curNode = head;
   while (curNode !== node) {
     if (curNode.value === node.value) return true;
-    curNode = node.next;
+    curNode = curNode.next;
   }
   return false;
 };
 
-// const removeDups = head => {
-//   const node = head;
-//   while (node) {
-//     if (node.next && checkDup(head, node.next)) {
-//       node.next = node.next.next;
-//     } else {
-//       node = node.next;
-//     }
-//   }
-// };
+const removeDups = head => {
+  let node = head;
+  while (node) {
+    if (node.next && checkDup(head, node.next)) {
+      node.next = node.next.next;
+    } else {
+      node = node.next;
+    }
+  }
+};
 // run time: O(n^2)
 // space complexity: O(1)
 

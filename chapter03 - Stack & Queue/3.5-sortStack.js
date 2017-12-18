@@ -2,23 +2,23 @@
 const { Stack } = require('./utils');
 
 // Solution - multiple stacks allowed
-// const sortStack = (stack) => {
-//   if (stack.length === 0) return;
-//   const retStack = new Stack();
-//   const tempStack = new Stack();
-//   let val;
-//   while (!stack.isEmpty()) {
-//    val = stack.pop();
-//     while (!retStack.isEmpty() && retStack.peek() < val){
-//       tempStack.push(retStack.pop());
-//     }
-//     retStack.push(val);
-//     while (!tempStack.isEmpty()) {
-//       retStack.push(tempStack.pop());
-//     }
-//   }
-//   return retStack;
-// };
+const sortStackBF = (stack) => {
+  if (stack.length === 0) return;
+  const retStack = new Stack();
+  const tempStack = new Stack();
+  let val;
+  while (!stack.isEmpty()) {
+    val = stack.pop();
+    while (!retStack.isEmpty() && retStack.peek() < val) {
+      tempStack.push(retStack.pop());
+    }
+    retStack.push(val);
+    while (!tempStack.isEmpty()) {
+      retStack.push(tempStack.pop());
+    }
+  }
+  return retStack;
+};
 // run time: O(n^2)
 // space complexity: O(n)
 
@@ -29,7 +29,7 @@ const sortStack = (stack) => {
   // sort stack in reverse order to temp stack
   while (!stack.isEmpty()) {
     const curVal = stack.pop();
-    while (!tempStack.isEmpty() && (tempStack.peek() > curVal)){
+    while (!tempStack.isEmpty() && (tempStack.peek() > curVal)) {
       stack.push(tempStack.pop());
     }
     tempStack.push(curVal);
