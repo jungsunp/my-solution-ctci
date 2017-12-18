@@ -10,17 +10,17 @@ const permWithDups = str => {
 	const prevPermArr = permWithDups(str.slice(1));
 	prevPermArr.forEach(perm => {
 		let tmpPerm;
-    for (let i = 0; i <= perm.length; i++) {
-      tmpPerm = perm.slice(0,i) + curChar + perm.slice(i);
-      if (hashPerm[tmpPerm]) continue;
-      retArr.push(tmpPerm);
-      hashPerm[tmpPerm] = true;
-    }
-  });
-return retArr;
+		for (let i = 0; i <= perm.length; i++) {
+			tmpPerm = perm.slice(0, i) + curChar + perm.slice(i);
+			if (hashPerm[tmpPerm]) continue;
+			retArr.push(tmpPerm);
+			hashPerm[tmpPerm] = true;
+		}
+	});
+	return retArr;
 };
 // Run: O(n!)
-
+// Space: O(n!)
 
 /* TEST */
 
