@@ -12,7 +12,7 @@ function getPath(root, node) {
 
     // This is important as if a node is null or doesn't have a parent
     // there is no need of searching further
-    while(curElement !== root && curElement && curElement.parentNode) {
+    while (curElement !== root && curElement && curElement.parentNode) {
         const index = curElement.parentNode.childNodes.indexOf(curElement);
         path.push(index);
         curElement = curElement.parentNode;
@@ -26,7 +26,7 @@ function getNodeByPath(root, originalPath) {
     const path = [].concat(originalPath);
     let element = root;
     while (path.length) {
-          element = element.childNodes[path.pop()];
+        element = element.childNodes[path.pop()];
     }
     return element;
 }
