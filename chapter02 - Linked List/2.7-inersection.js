@@ -1,8 +1,6 @@
-// Linked List
-function LinkedList (value) {
-  this.value = value;
-  this.next = null;
-};
+
+
+const { LinkedList } = require('./utils');
 
 // Solution - hash map
 const intersection = (l1, l2) => {

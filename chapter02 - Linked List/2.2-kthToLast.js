@@ -1,32 +1,14 @@
-// Linked List
-function linkedList (value) {
-  this.value = value;
-  this.next = null;
-};
 
-// Solution
-// wrong solution ..?
-const findKthToLast = (k, head) => {
-  if (k < 1 || !head) return;
-  let node = head;
-  if (k === 1) {
-    console.log(node.value);
-    findKthToLast(k, node.next);
-  } else {
-    findKthToLast(k-1, node.next);
-  }
-};
-// run time: O(n)
-// space complexity: O(n)
+const { LinkedList } = require('./utils');
 
 /* TESTS */
-var a = new linkedList('1');
-var b = new linkedList('2');
-var c = new linkedList('3');
-var d = new linkedList('4');
-var e = new linkedList('5');
-var f = new linkedList('6');
-var g = new linkedList('7');
+var a = new LinkedList('1');
+var b = new LinkedList('2');
+var c = new LinkedList('3');
+var d = new LinkedList('4');
+var e = new LinkedList('5');
+var f = new LinkedList('6');
+var g = new LinkedList('7');
 
 a.next = b;
 b.next = c;
