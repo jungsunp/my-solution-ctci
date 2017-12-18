@@ -50,7 +50,7 @@ const rotateMatrix = matrix => {
   for (let i = 0; i < edge / 2; i++) {
     for (let j = i; j < edge - i; j++) {
       console.log('(i, j):', i, j);
-      movePixel(i,j);
+      movePixel(i, j);
     }
   }
 
@@ -64,18 +64,18 @@ var testMatrix = [
   [0, 1, 2, 3],
   [0, 0, 1, 2],
   [1, 0, 0, 1]
-  ];
+];
 
-  console.log('before:');
-  console.log(testMatrix[0]);
-  console.log(testMatrix[1]);
-  console.log(testMatrix[2]);
-  console.log(testMatrix[3]);
+console.log('before:');
+console.log(testMatrix[0]);
+console.log(testMatrix[1]);
+console.log(testMatrix[2]);
+console.log(testMatrix[3]);
 
-  rotateMatrix(testMatrix);
+rotateMatrix(testMatrix);
 
-  console.log('after:');
-  console.log(testMatrix[0]);
-  console.log(testMatrix[1]);
-  console.log(testMatrix[2]);
-  console.log(testMatrix[3]);
+console.log('after:');
+console.log(testMatrix[0]);
+console.log(testMatrix[1]);
+console.log(testMatrix[2]);
+console.log(testMatrix[3]);
