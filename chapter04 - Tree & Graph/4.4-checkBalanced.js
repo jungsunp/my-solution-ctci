@@ -2,27 +2,21 @@
 const BST = require('./utils/BST');
 
 // Solution - recursive
-// const treeHeight = tree => {
-//   if (!tree) return 0;
-//   if (!tree.left && !tree.right) return 1;
-//   return 1 + Math.max(treeHeight(tree.left), treeHeight(tree.right));
-// };
+const treeHeightBF = tree => {
+  if (!tree) return 0;
+  return 1 + Math.max(treeHeightBF(tree.left), treeHeightBF(tree.right));
+};
 
-// const checkBalanced = tree => {
-//   if (!tree) return false;
-//   if (!tree.left && !tree.right) return true;
-//   if (Math.abs(treeHeight(tree.left) - treeHeight(tree.right)) > 1) {
-//     return false;
-//   } else {
-//     if (tree.left) {
-//       if (!checkBalanced(tree.left)) return false;
-//     }
-//     if (tree.right) {
-//       if (!checkBalanced(tree.right)) return false;
-//     }
-//   }
-//   return true;
-// };
+const checkBalancedBF = tree => {
+  if (!tree) return false;
+  if (!tree.left && !tree.right) return true;
+  if (Math.abs(treeHeight(tree.left) - treeHeight(tree.right)) > 1) {
+    return false;
+  }
+  if (tree.left && !checkBalancedBF(tree.left)) return false;
+  if (tree.right && !checkBalancedBF(tree.right)) return false;
+  return true;
+};
 // run time: O(n log n)
 // space complexity: O(log n)
 

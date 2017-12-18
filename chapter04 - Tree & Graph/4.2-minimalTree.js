@@ -8,7 +8,7 @@ const insertBalanced = arr => {
   if (midIndex > 0) {
     tree.left = insertBalanced(arr.slice(0, midIndex));
   }
-  if (midIndex < arr.length-1) {
+  if (midIndex < arr.length - 1) {
     tree.right = insertBalanced(arr.slice(midIndex + 1));
   }
   return tree;

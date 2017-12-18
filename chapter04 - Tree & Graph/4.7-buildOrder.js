@@ -1,8 +1,10 @@
-// directed graph
+
+
 var Graph = require('./utils/Graph');
 
 // Solution - DFS
 // Problem is called: Topological sort
+
 const nodeWithNoChild = (graph) => {
   for (let node in graph.nodes) {
     if (Object.keys(graph.findEdges(node)).length < 1) return node;

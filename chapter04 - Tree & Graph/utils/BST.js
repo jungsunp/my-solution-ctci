@@ -29,6 +29,7 @@ BST.prototype.printLevelOrder = function() {
   var currNode;
 
   q.add(this);
+  console.log('***** Start of BST *****');
   while (!q.isEmpty()) {
     currNode = q.remove();
     level.push(currNode.value);
@@ -45,6 +46,7 @@ BST.prototype.printLevelOrder = function() {
       nextq = new Queue();
     }
   }
+  console.log('***** End of BST *****');
 };
 
 module.exports = BST;
