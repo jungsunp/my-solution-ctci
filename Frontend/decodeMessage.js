@@ -10,14 +10,18 @@ const decodeArr = grid => {
   let i = 0;
   let j = 0;
   let step = 1;
-  while (i < row) {
-    retStr += grid[j][i];
-    i++;
-    j += step;
-    if (j === col - 1) step = -1;
-    else if (j === 0) step = 1;
+  while (j < row) {
+    retStr += grid[i][j];
+    j++;
+    i += step;
+    if (i === col - 1) step = -1;
+    else if (i === 0) step = 1;
   }
   return retStr;
 };
 
-console.log(decodeArr([['I', 'B', 'C', 'A', 'L', 'K', 'A'], ['D', 'R', 'F', 'C', 'A', 'E', 'A'], ['G', 'H', 'O', 'E', 'L', 'A', 'D']]));
+console.log(decodeArr([
+  ['I', 'B', 'C', 'A', 'L', 'K', 'A'],
+  ['D', 'R', 'F', 'C', 'A', 'E', 'A'],
+  ['G', 'H', 'O', 'E', 'L', 'A', 'D']
+]));
