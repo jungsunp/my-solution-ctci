@@ -14,13 +14,13 @@ const canJump = (nums, memo) => {
 
   let maxJump = nums[0];
   if (maxJump >= nums.length - 1) return true;
-    while (maxJump > 0) {
-      let nextJump;
-      const nextNums = nums.slice(maxJump);
-      if (memo.has(nextNums)) nextJump = memo.get(nextNums);
-      else nextJump = canJump(nextNums, memo);
-      if (nextJump) return true;
-      maxJump--;
-    }
-    return false;
+  while (maxJump > 0) {
+    let nextJump;
+    const nextNums = nums.slice(maxJump);
+    if (memo.has(nextNums)) nextJump = memo.get(nextNums);
+    else nextJump = canJump(nextNums, memo);
+    if (nextJump) return true;
+    maxJump--;
+  }
+  return false;
 };

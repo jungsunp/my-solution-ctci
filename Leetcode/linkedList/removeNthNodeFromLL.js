@@ -3,30 +3,30 @@
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
 // 2 pass solution
-// const removeNthFromEnd = (head, n) => {
+const removeNthFromEndTwoPass = (head, n) => {
+  let length = 0;
+  let node = head;
+  while (node) {
+    length++;
+    node = node.next;
+  }
 
-//   let length = 0;
-//   let node = head;
-//   while (node) {
-//     length++;
-//     node = node.next;
-//   }
+  const dummy = new ListNode();
+  dummy.next = head;
+  node = dummy;
+  length -= n;
+  while (length > 0) {
+      node = node.next;
+      length--;
+   }
+  node.next = node.next.next;
 
-//   const dummy = new ListNode();
-//   dummy.next = head;
-//   node = dummy;
-//   length -= n;
-//   while (length > 0) {
-//       node = node.next;
-//       length--;
-//    }
-//   node.next = node.next.next;
-//   return dummy.next;
-// };
+  return dummy.next;
+};
 // Run: O(L)
 // Space: O(1)
 
-// 1 pass solution
+// 1 pass solution - Fast & slow runner
 const removeNthFromEnd = (head, n) => {
 	if (!head.next) return null;
 

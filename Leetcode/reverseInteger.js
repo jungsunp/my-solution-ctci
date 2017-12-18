@@ -13,6 +13,7 @@ var reverse = function(x) {
     isNegative = true;
     x = -x;
   }
+
   let ret = 0;
   while (x > 0){
     const digit = x % 10;
