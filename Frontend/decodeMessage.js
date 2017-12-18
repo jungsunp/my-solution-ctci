@@ -20,4 +20,4 @@ const decodeArr = grid => {
   return retStr;
 };
 
-console.log(decodeArr([['I','B','C','A','L','K','A'],['D','R','F','C','A','E','A'],['G','H','O','E','L','A','D']]));
+console.log(decodeArr([['I', 'B', 'C', 'A', 'L', 'K', 'A'], ['D', 'R', 'F', 'C', 'A', 'E', 'A'], ['G', 'H', 'O', 'E', 'L', 'A', 'D']]));

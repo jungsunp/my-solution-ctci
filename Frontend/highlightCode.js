@@ -26,7 +26,8 @@ function highlightCode(node, keywords) {
 }
 
 var languages = {
-  javascript: /\b(function|return|var)\b/g /* … etc */
+  javascript: /\b(function|return|var)\b/g
+  /* … etc */
 };
 
 function highlightAllCode() {

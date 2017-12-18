@@ -29,26 +29,27 @@ function Subscription(event, callback, key, emitter) {
 }
 
 Emitter.prototype.subscribe = function (event, callback) {
-  if (!this.events.hasOwnProperty(event)) {
-    this.events[event] = [];
+  if (!this.events.has(event)) {
+    this.events.set(event, []);
   }
   const subs = new Subscription(
     event,
     callback,
-    this.events[event].length,
+    this.events.get(event).length,
     this
   );
-  this.events[event].push(subs);
+  this.events.get(event).push(subs);
 };
 
 Emitter.prototype.emit = function (event) {
-  if (!this.events.hasOwnProperty(event)) return;
+  if (!this.events.has(event)) return;
   const args = Array.prototype.slice.call(arguments, 1);
-  this.events[event].forEach(subs => {
+  this.events.get(event).forEach(subs => {
     subs.callback.apply(subs, args);
   });
 };
 
 Subscription.prototype.release = function () {
-  this.emitter.events[this.event].splice(this.key, 1);
+  if (!this.emitter.events.has(this.event)) return;
+  this.emitter.events.get(this.event).splice(this.key, 1);
 };

@@ -27,9 +27,9 @@ function buildTable(data) {
         const td = document.createElement('td');
           td.appendChild(document.createTextNode(mountain[header]));
           row.appendChild(td);
-      })
+      });
       table.appendChild(row);
-  })
+  });
 
   return table;
 }
