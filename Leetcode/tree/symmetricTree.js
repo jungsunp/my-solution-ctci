@@ -50,9 +50,9 @@ const symmetricHelper = (lNode, rNode) => {
   if (!lNode || !rNode) return lNode === rNode;
   if (lNode.val !== rNode.val) return false;
   return symmetricHelper(lNode.left, rNode.right) && symmetricHelper(lNode.right, rNode.left);
-}
+};
 
-var isSymmetric = function(root) {
+const isSymmetric = function (root) {
   if (!root) return true;
   return symmetricHelper(root.left, root.right);
 };

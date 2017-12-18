@@ -39,7 +39,7 @@ const multiplyExcept = arr => {
       if (elem === 0) val = multiEverything;
       else val = 0;
     } else if (zeroCount > 1) {
-       val = 0;
+      val = 0;
     } else val = multiEverything / elem;
     returnArr.push(val);
   });
@@ -52,27 +52,27 @@ const multiplyExcept = arr => {
 
 // Division NOT allowed
 const multiNoDiv = arr => {
-    if (arr.length < 1) return [];
+  if (arr.length < 1) return [];
 
-    const fromLeft = Array(arr.length).fill(0);
-    fromLeft[0] = 1;
-    for (let i = 1; i < arr.length; i++){
-      const val = fromLeft[i-1] * arr[i-1];
-      fromLeft[i] = val;
-    }
+  const fromLeft = Array(arr.length).fill(0);
+  fromLeft[0] = 1;
+  for (let i = 1; i < arr.length; i++) {
+    const val = fromLeft[i - 1] * arr[i - 1];
+    fromLeft[i] = val;
+  }
 
-    const fromRight = Array(arr.length).fill(0);
-    fromRight[arr.length - 1] = 1;
-    for (let i = arr.length - 1; i > 0; i--){
-      const val = fromRight[i] * arr[i];
-      fromRight[i - 1] = val;
-    }
+  const fromRight = Array(arr.length).fill(0);
+  fromRight[arr.length - 1] = 1;
+  for (let i = arr.length - 1; i > 0; i--) {
+    const val = fromRight[i] * arr[i];
+    fromRight[i - 1] = val;
+  }
 
-    const retArr = Array(arr.length).fill(0);
-    for (let i = 0; i < arr.length; i++){
-      retArr[i] = fromLeft[i] * fromRight[i];
-    }
-    return retArr[i];
+  const retArr = Array(arr.length).fill(0);
+  for (let i = 0; i < arr.length; i++) {
+    retArr[i] = fromLeft[i] * fromRight[i];
+  }
+  return retArr[i];
 };
 
 

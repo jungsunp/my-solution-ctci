@@ -14,17 +14,17 @@
  * @return {number}
  */
 // DFS - iterative
-var kthSmallest = function(root, k) {
-  const nodeStack = [];
-  let node = root;
-  while (node || nodeStack.length > 0) {
-      while (node) {
-          nodeStack.push(node);
-          node = node.left;
-      }
-      node = nodeStack.pop();
-      if (--k === 0) break;
-      node = node.right;
-  }
-  return node.val;
+var kthSmallest = function (root, k) {
+    const nodeStack = [];
+    let node = root;
+    while (node || nodeStack.length > 0) {
+        while (node) {
+            nodeStack.push(node);
+            node = node.left;
+        }
+        node = nodeStack.pop();
+        if (--k === 0) break;
+        node = node.right;
+    }
+    return node.val;
 };
