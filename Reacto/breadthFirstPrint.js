@@ -5,11 +5,10 @@
 // Solution
 const printTreeLevels = tree => {
   let curLevelArr = [tree];
-  let nextLevelArr, outStr;
 
   while (curLevelArr.length > 0) {
-    nextLevelArr = [];
-    outStr = '';
+    const nextLevelArr = [];
+    let outStr = '';
     curLevelArr.forEach(node => {
       if (node.children) nextLevelArr = nextLevelArr.concat(node.children);
       outStr += node.value + ' ';
