@@ -5,6 +5,7 @@ function linkedList (value) {
 };
 
 // Solution
+// wrong solution ..?
 const findKthToLast = (k, head) => {
   if (k < 1 || !head) return;
   let node = head;

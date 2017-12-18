@@ -1,5 +1,5 @@
 // Linked List
-function LinkedList (value) {
+function LinkedList(value) {
   this.value = value;
   this.next = null;
 };
