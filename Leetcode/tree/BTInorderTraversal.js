@@ -5,11 +5,10 @@
 
 // Iterative solution
 const inorderTraversal = root => {
-    if (!root) return [];
     const retArr = [];
     const nodeStack = [];
     let node = root;
-    while (node || nodeStack.length > 0) {
+    while (node || nodeStack.length) {
         while (node) {
             nodeStack.push(node);
             node = node.left;

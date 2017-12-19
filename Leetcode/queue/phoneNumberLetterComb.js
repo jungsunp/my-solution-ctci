@@ -16,25 +16,25 @@ const telephone = {
 };
 
 // Using recursion
-// var letterCombinations = function(digits) {
-//   if (digits.length < 1) return [];
-//   if (digits.length === 1) return telephone[digits[0]];
+const letterCombinationsRC = function(digits) {
+  if (digits.length < 1) return [];
+  if (digits.length === 1) return telephone[digits[0]];
 
-//   const retArr = [];
-//   const prevComb = letterCombinations(digits.slice(1));
-//   telephone[digits[0]].forEach(letter => {
-//       prevComb.forEach(comb => {
-//           retArr.push(letter + comb);
-//       });
-//   });
-//   return retArr;
-// };
+  const retArr = [];
+  const prevComb = letterCombinations(digits.slice(1));
+  telephone[digits[0]].forEach(letter => {
+      prevComb.forEach(comb => {
+          retArr.push(letter + comb);
+      });
+  });
+  return retArr;
+};
 // Run : O(3^n)
 // Space : O(3^n)
 
 
 // Using FIFO queue
-var letterCombinations = function(digits) {
+const letterCombinations = function(digits) {
   if (digits.length < 1) return [];
 
   let retArr = telephone[digits[0]].slice();
@@ -52,3 +52,5 @@ var letterCombinations = function(digits) {
 };
 // Run : O(3^n)
 // Space : O(3^n)
+
+console.log(letterCombinations('2246'));

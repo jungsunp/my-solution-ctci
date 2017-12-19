@@ -2,7 +2,6 @@
 
 // https://leetcode.com/problems/symmetric-tree/description/
 
-// Solution - BFS (Iterative)
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -14,38 +13,40 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-// var isSymmetric = function(root) {
-//   if (!root) return true;
-//   let leftArr = [root.left];
-//   let rightArr = [root.right];
-//   let allNull = (root.left === null) && (root.right === null);
 
-//   while(!allNull) {
-//       allNull = true;
-//       const tmpLeftArr = [];
-//       const tmpRightArr = [];
+ // Solution - BFS (Iterative)
+const isSymmetricBFS = root => {
+  if (!root) return true;
+  let leftArr = [root.left];
+  let rightArr = [root.right];
+  let allNull = (root.left === null) && (root.right === null);
 
-//       for (let i = 0; i < leftArr.length; i++){
-//           const j = rightArr.length - i - 1;
-//           const leftVal = leftArr[i] ? leftArr[i].val : null;
-//           const rightVal = rightArr[j] ? rightArr[j].val : null;
-//           if (leftVal !== rightVal) return false;
+  while(!allNull) {
+      allNull = true;
+      const tmpLeftArr = [];
+      const tmpRightArr = [];
 
-//           if (leftVal !== null) allNull = false;
-//           else continue;
+      for (let i = 0; i < leftArr.length; i++){
+          const j = rightArr.length - i - 1;
+          const leftVal = leftArr[i] ? leftArr[i].val : null;
+          const rightVal = rightArr[j] ? rightArr[j].val : null;
+          if (leftVal !== rightVal) return false;
 
-//           tmpLeftArr.push(leftArr[i].left, leftArr[i].right);
-//           tmpRightArr.unshift(rightArr[j].left, rightArr[j].right);
-//       }
+          if (leftVal !== null) allNull = false;
+          else continue;
 
-//       leftArr = tmpLeftArr;
-//       rightArr = tmpRightArr;
-//   }
+          tmpLeftArr.push(leftArr[i].left, leftArr[i].right);
+          tmpRightArr.unshift(rightArr[j].left, rightArr[j].right);
+      }
 
-//   return true;
-// };
+      leftArr = tmpLeftArr;
+      rightArr = tmpRightArr;
+  }
 
-// Recursive - DFS
+  return true;
+};
+
+// Solution - DFS (Recursive)
 const symmetricHelper = (lNode, rNode) => {
   if (!lNode || !rNode) return lNode === rNode;
   if (lNode.val !== rNode.val) return false;

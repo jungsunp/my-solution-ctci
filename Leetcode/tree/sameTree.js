@@ -16,7 +16,7 @@
  */
 // BFS (non-recursive)
 //  recursive is simpler to implement..
-var isSameTree = function (p, q) {
+const isSameTreeBFS = (p, q) => {
     if (p === null) return (q === null);
     if (q === null) return (p === null);
     if (p.val !== q.val) return false;
@@ -52,5 +52,14 @@ var isSameTree = function (p, q) {
 
     return true;
 };
+// Run: O(n)
+// Space: O(k) - most number of nodes in level
+
+const sameTree = (p, q) => {
+	if (!p || !q) return p === q;
+	if (p.val !== q.val) return false;
+	return sameTree(p.left, q.left) && sameTree(p.right, q.right);
+};
+
 // Run: O(n)
 // Space: O(k) - most number of nodes in level
