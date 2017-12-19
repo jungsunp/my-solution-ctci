@@ -2,13 +2,12 @@
 
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
-
 // Solution - faster for some reason..
 /**
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstringBF = function(s) {
   let str = '';
   let retStr = '';
   for (let i = 0; i < s.length; i++){

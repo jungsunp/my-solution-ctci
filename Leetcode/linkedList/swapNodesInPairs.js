@@ -14,25 +14,25 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function(head) {
-  const dummyHead = new ListNode();
-  let node = head;
-  let prev = dummyHead;
-  while (node) {
-      const next = node.next;
-      if (next) {
-          node.next = next.next;
-          next.next = node;
-          prev.next = next;
-      } else {
-          node.next = null;
-          prev.next = node;
-      }
-      prev = node;
-      node = node.next;
-  }
+var swapPairs = function (head) {
+    const dummyHead = new ListNode();
+    let node = head;
+    let prev = dummyHead;
+    while (node) {
+        const next = node.next;
+        if (next) {
+            node.next = next.next;
+            next.next = node;
+            prev.next = next;
+        } else {
+            node.next = null;
+            prev.next = node;
+        }
+        prev = node;
+        node = node.next;
+    }
 
-  return dummyHead.next;
+    return dummyHead.next;
 };
 // Run: O(n)
 // Space: O(1)

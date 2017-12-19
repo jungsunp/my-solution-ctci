@@ -32,8 +32,8 @@ var findMinHeightTrees = function(n, edges) {
       minDegrees.forEach(leave => {
           graph[leave].forEach(vert => {
               if (--indegrees[vert] === 1) tmpMinDegrees.push(vert);
-          })
-      })
+          });
+      });
       n -= minDegrees.length;
       minDegrees = tmpMinDegrees;
   }

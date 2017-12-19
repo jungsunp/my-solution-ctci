@@ -2,7 +2,7 @@
 
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
-// 2 pass solution
+// Solution - 2 pass
 const removeNthFromEndTwoPass = (head, n) => {
   let length = 0;
   let node = head;
@@ -26,7 +26,7 @@ const removeNthFromEndTwoPass = (head, n) => {
 // Run: O(L)
 // Space: O(1)
 
-// 1 pass solution - Fast & slow runner
+// Solution - 1 pass (Fast & slow runner)
 const removeNthFromEnd = (head, n) => {
 	if (!head.next) return null;
 

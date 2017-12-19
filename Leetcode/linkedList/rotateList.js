@@ -15,7 +15,7 @@
 * @return {ListNode}
 */
 
-// Fast runner & slow runner
+// Solution - Fast runner & slow runner
 var rotateRight = function(head, k) {
    if (!head || !head.next || k === 0) return head;
    const dummy = new ListNode();

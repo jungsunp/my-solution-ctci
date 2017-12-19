@@ -1,36 +1,12 @@
+
+
+// https://leetcode.com/problems/top-k-frequent-elements
+
 /**
  * @param {number[]} nums
  * @param {number} k
  * @return {number[]}
  */
-const topKFrequent = (nums, k) => {
-  const hash = new Map();
-
-  // Build hash map with frequencies
-  nums.forEach(num => {
-      if (!hash.has(num)) hash.set(num, 1);
-      else hash.set(num, hash.get(num) + 1);
-  });
-  console.log('has', hash)
-
-  // Build max-heap
-  const maxHeap = [ null ];
-  hash.forEach((freq, num) => {
-      maxHeap.push({ num, freq });
-      bubbleUp(maxHeap);
-  });
-  console.log('maxHeap', maxHeap)
-
-  // Remove max head k times
-  const retArr = [];
-  for (let i = 0; i < k; i++){
-      retArr.push(maxHeap[1].num);
-      const end = maxHeap.pop();
-      maxHeap[1] = end;
-      bubbleDown(maxHeap);
-  }
-  return retArr;
-};
 
 const bubbleUp = heap => {
 	let done = false;
@@ -72,6 +48,35 @@ const bubbleDown = heap => {
 		}
 	}
 };
+
+const topKFrequent = (nums, k) => {
+  const hash = new Map();
+
+  // Build hash map with frequencies
+  nums.forEach(num => {
+      if (!hash.has(num)) hash.set(num, 1);
+      else hash.set(num, hash.get(num) + 1);
+  });
+
+  // Build max-heap
+  const maxHeap = [ null ];
+  hash.forEach((freq, num) => {
+      maxHeap.push({ num, freq });
+      bubbleUp(maxHeap);
+  });
+
+  // Remove max head k times
+  const retArr = [];
+  for (let i = 0; i < k; i++){
+      retArr.push(maxHeap[1].num);
+      const end = maxHeap.pop();
+      maxHeap[1] = end;
+      bubbleDown(maxHeap);
+  }
+  return retArr;
+};
+// Run: O(n log n)
+// Space: O(k) - k: number of unique element
 
 console.log(topKFrequent([1,1,1,2,2,3], 2)); //2
 console.log(topKFrequent([-1,-1], 1)); //-1
