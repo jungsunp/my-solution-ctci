@@ -60,7 +60,7 @@ TicTacToe.prototype.play = (user, row, col) => {
   if (checkBoard(this.board)) return 1;
   else if (++this.count === 9) return -1;
   else return 0;
-}
+};
 
 // 1
 // 0
