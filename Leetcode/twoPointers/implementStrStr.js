@@ -23,6 +23,8 @@ const strStr = (haystack, needle) => {
   }
   return -1;
 };
+// Run: O(m * n) - m: length of haysack, n: length of needle
+// Space: O(1)
 
 console.log(strStr('hello', 'll'));
 console.log(strStr('a', ''));
