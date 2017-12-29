@@ -6,20 +6,20 @@
  * @param {number} n
  * @return {string}
  */
-var countAndSay = function(n) {
+var countAndSay = function (n) {
   if (n <= 1) return '1';
 
   let retStr = '';
-  const prevStr = countAndSay(n-1);
+  const prevStr = countAndSay(n - 1);
   let index = 0;
   while (index < prevStr.length) {
-      let count = 1;
-      while (prevStr[index] === prevStr[index + 1]) {
-          count++;
-          index++;
-      }
-      retStr += count + prevStr[index];
+    let count = 1;
+    while (prevStr[index] === prevStr[index + 1]) {
+      count++;
       index++;
+    }
+    retStr += count + prevStr[index];
+    index++;
   }
   return retStr;
 };
