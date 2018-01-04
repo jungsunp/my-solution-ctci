@@ -41,4 +41,36 @@ Dock.prototype.deal = () => {
   return this.cards.pop();
 };
 
+// Dealer & Player
+
+function Dealer () {
+  this.deck = new Deck();
+  this.hands = [];
+}
+
+Dealer.prototype.shuffle = () => {
+  this.deck.shuffle();
+};
+
+Dealer.prototype.deal = () => {
+  return this.deck.deal();
+};
+
+Dealer.prototype.receiveCard = card => {
+  this.hands.push(card);
+};
+
+function Player () {
+  this.hands = [];
+}
+
+Player.prototype.receiveCard = card => {
+  this.hands.push(card);
+};
+
+Player.prototype.discardCard = () => {
+  this.hands.length = 0;
+};
+
 // Blackjack
+
