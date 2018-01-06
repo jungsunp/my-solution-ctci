@@ -1,9 +1,19 @@
+using System;
 
 public class Program
 {
   public static void Main (string[] arbgs)
   {
-    // ...
+    Console.Write("Please enter a string: ");
+    string text = Console.ReadLine();
+
+    Console.Write("Please enter an integer: ");
+    int number = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("You entered '{0}' and {1}", text, number);
+    Console.ReadKey();
+
+    int fact = Factorial(1);
   }
 
   #region factorial
