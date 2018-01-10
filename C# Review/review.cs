@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Program
 {
@@ -27,4 +28,12 @@ public class Program
     return answer;
   }
   #endregion
+
+  static int test (int[] nums) {
+    Stack<int> stack = new Stack<int>();
+    stack.push(1);
+    stack.push(2);
+    Console.WriteLine(stack.pop());
+    Console.WriteLine(stack.pop());
+  }
 }
