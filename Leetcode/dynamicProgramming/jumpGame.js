@@ -29,7 +29,7 @@ const canJumpMemo = (nums, memo) => {
 //  Difficult to come up with this approach during interview
 //  recursion -> memoization -> bottom to top -> greedy
 const canJump = (nums) => {
-	if (!nums || nums.length < 2) return true;
+  if (!nums || nums.length < 2) return true;
   let lastPos = nums.length - 1;
 
   for (let i = nums.length - 2; i >= 0; i--) {
