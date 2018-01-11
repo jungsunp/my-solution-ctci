@@ -7,7 +7,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-const canJump = (nums, memo) => {
+const canJumpMemo = (nums, memo) => {
   if (!memo) memo = new Map();
   if (nums.length < 1) return false;
   if (nums.length === 1) return true;
@@ -24,3 +24,17 @@ const canJump = (nums, memo) => {
   }
   return false;
 };
+
+// Solution - Fully optimized
+//  Difficult to come up with this approach during interview
+//  recursion -> memoization -> bottom to top -> greedy
+const canJump = (nums) => {
+	if (!nums || nums.length < 2) return true;
+  let lastPos = nums.length - 1;
+
+  for (let i = nums.length - 2; i >= 0; i--) {
+    if (i + nums[i] >= lastPos) lastPos = i;
+  }
+
+  return lastPos === 0;
+}
