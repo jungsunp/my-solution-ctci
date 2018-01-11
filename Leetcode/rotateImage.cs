@@ -1,6 +1,7 @@
 
 
 // https://leetcode.com/problems/rotate-image/description/
+// Note that this is same problem as CTCI - 1.7
 
 public class Solution {
     public void Rotate(int[,] matrix) {
