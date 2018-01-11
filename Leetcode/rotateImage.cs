@@ -3,33 +3,36 @@
 // https://leetcode.com/problems/rotate-image/description/
 
 public class Solution {
-  public void Rotate(int[,] matrix) {
-      int length = matrix.GetLength(0); // number of row
-      int depth = 0;
+    public void Rotate(int[,] matrix) {
+        int length = matrix.GetLength(0); // number of row
 
-      while (depth < length - 1) {
-        int blockLen = length - depth - 1;
-        int[] tmpArr = new int[blockLen];
-
-        for(int fromCol = 0; i < blockLen; i++) {
-          int fromRow = depth;
-          int toRow = length - fromRow - 1;
-          int toCol = fromCol;
-
-          tmpArr[fromCol]  = int[toRow, toCol];
-          int[toRow, toCol] = int[fromRow, fromCol];
+        for (int row = 0; row < length / 2; row++) {
+          for (int col = row; col < length - row - 1; col++) {
+            MovePixel(matrix, row, col);
+          }
         }
 
-        for(int fromRow = 0; i < blockLen; i++) {
-          int fromCol = length - depth -1;
-          int toCol = length - fromRow - 1;
-          int toRow = fromCol;
+    }
 
-          tmpArr[fromCol]  = int[toRow, toCol];
-          int[toRow, toCol] = int[fromRow, fromCol];
-        }
+    public void MovePixel(int[,] matrix, int row, int col) {
+      int length = matrix.GetLength(0);
+      int fromRow, fromCol, tmpNum;
+      int toRow = col;
+      int toCol = length - row - 1;
+      int copyNum = matrix[row, col];
 
-        depth += 2;
+
+      for (int i = 0; i < 4; i++) {
+        tmpNum = matrix[toRow, toCol];
+        matrix[toRow, toCol] = copyNum;
+        copyNum = tmpNum;
+
+        fromRow = toRow;
+        fromCol = toCol;
+        toRow = fromCol;
+        toCol = length - fromRow - 1;
       }
-  }
+
+
+    }
 }
