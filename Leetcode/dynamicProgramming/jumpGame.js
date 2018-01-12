@@ -37,4 +37,4 @@ const canJump = (nums) => {
   }
 
   return lastPos === 0;
-}
+};
