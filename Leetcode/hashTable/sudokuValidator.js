@@ -6,8 +6,7 @@
  * @param {character[][]} board
  * @return {boolean}
  */
-// More efficient solution also O(n)
-var isValidSudoku = function(board) {
+const isValidSudoku = (board) => {
 
   const checkValid = (val, map) => {
       if (val === '.') return true;
@@ -33,3 +32,4 @@ var isValidSudoku = function(board) {
   }
   return true;
 };
+// More efficient solution also O(n)
