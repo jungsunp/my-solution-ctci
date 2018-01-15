@@ -19,3 +19,5 @@ const climbStairs = (step, memo) => {
       return numWays;
   }
 };
+// Run: O(n)
+// Space: O(n)
