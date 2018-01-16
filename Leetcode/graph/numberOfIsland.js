@@ -15,29 +15,29 @@ const numIslands = grid => {
   let num = 0;
 
   const checkNeighbor = (nodeRow, nodeCol, nodeStack) => {
-      if (nodeRow < 0 || nodeCol < 0) return;
-      if (nodeRow >= row || nodeCol >= col) return;
-      if (grid[nodeRow][nodeCol] === '0') return;
-      grid[nodeRow][nodeCol] = '0';
-      nodeStack.push(nodeRow * col + nodeCol);
+    if (nodeRow < 0 || nodeCol < 0) return;
+    if (nodeRow >= row || nodeCol >= col) return;
+    if (grid[nodeRow][nodeCol] === '0') return;
+    grid[nodeRow][nodeCol] = '0';
+    nodeStack.push(nodeRow * col + nodeCol);
   };
 
   for (let i = 0; i < row; i++) {
-      for (let j = 0; j < col; j++) {
-          if (grid[i][j] === '0') continue;
-          grid[i][j] = '0';
-          num++;
-          const nodeStack = [ i * col + j ];
-          while (nodeStack.length) {
-              const node = nodeStack.pop();
-              const nodeRow = Math.floor(node / col);
-              const nodeCol = node % col;
-              checkNeighbor(nodeRow - 1, nodeCol, nodeStack);
-              checkNeighbor(nodeRow, nodeCol - 1, nodeStack);
-              checkNeighbor(nodeRow + 1, nodeCol, nodeStack);
-              checkNeighbor(nodeRow, nodeCol + 1, nodeStack);
-          }
+    for (let j = 0; j < col; j++) {
+      if (grid[i][j] === '0') continue;
+      grid[i][j] = '0';
+      num++;
+      const nodeStack = [i * col + j];
+      while (nodeStack.length) {
+        const node = nodeStack.pop();
+        const nodeRow = Math.floor(node / col);
+        const nodeCol = node % col;
+        checkNeighbor(nodeRow - 1, nodeCol, nodeStack);
+        checkNeighbor(nodeRow, nodeCol - 1, nodeStack);
+        checkNeighbor(nodeRow + 1, nodeCol, nodeStack);
+        checkNeighbor(nodeRow, nodeCol + 1, nodeStack);
       }
+    }
   }
 
   return num;
