@@ -64,6 +64,7 @@ LRUCache.prototype.get = function (key) {
   this.dlList.moveToHead(node);
   return node.value;
 };
+// Run: O(1)
 
 /**
  * @param {number} key
@@ -90,6 +91,7 @@ LRUCache.prototype.put = function (key, value) {
   this.dlList.addAfterHead(node);
   this.hashTable.set(key, node);
 };
+// Run: O(1)
 
 /**
  * Your LRUCache object will be instantiated and called as such:
