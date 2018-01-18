@@ -7,7 +7,7 @@
  * @return {number}
  */
 
-// Solution - DFS
+// Solution - BFS
 const numIslands = grid => {
   if (!grid || grid.length < 1) return 0;
   const row = grid.length;
