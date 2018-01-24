@@ -14,6 +14,8 @@ const loopDetection = head => {
   }
 };
 
+// There is faster solution with fast and slow runner
+
 // TEST
 // A -> B -> C -> D -> E -> C
 
